@@ -9,7 +9,7 @@ const app = express();
 
 // Direct MongoDB connection URL
 const mongoURI = "mongodb://localhost:27017/mydatabase"; // Replace "mydatabase" with your database name
-const PORT = 5001; // Define your port number here
+const PORT = 8000; // Define your port number here
 
 // DB connection
 mongoose.set("useFindAndModify", false);
@@ -19,7 +19,7 @@ const connectToDB = async () => {
     try {
         await mongoose.connect(mongoURI, {
             useNewUrlParser: true,
-            useUnifiedTopology: true
+            useUnifiedTopology: true,
         });
         console.log("MongoDB connected...");
     } catch (err) {
