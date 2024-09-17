@@ -1,4 +1,5 @@
 import React from "react";
+import GoogleTranslate from "./GoogleTranslate";
 import logo from "../assets/images/kissan-logo.jpeg";
 
 function Header() {
@@ -6,12 +7,6 @@ function Header() {
         <header style={headerStyle}>
             {/* Left: Logo */}
             <div style={logoStyle}>
-                {/* <img
-                    src={logo}
-                    alt="Kissan Connect Logo"
-                    // style={logoImageStyle}
-                    className="img-class"
-                /> */}
                 <h1>Kisan Connect</h1>
             </div>
 
@@ -24,7 +19,7 @@ function Header() {
                 />
             </div>
 
-            {/* Right: Navigation Links */}
+            {/* Right: Navigation Links and Language Selector */}
             <nav style={navStyle}>
                 <a href="/" style={navLinkStyle}>
                     Home
@@ -35,6 +30,9 @@ function Header() {
                 <a href="/profile" style={navLinkStyle}>
                     Profile
                 </a>
+
+                {/* Google Translate Component */}
+                {/* <GoogleTranslate /> */}
             </nav>
         </header>
     );
@@ -52,11 +50,10 @@ const headerStyle = {
 
 const logoStyle = {
     width: "20% !important",
-    // height: "50px",
 };
 
 const searchContainerStyle = {
-    flex: 1, // Makes the search bar container take available space
+    flex: 1,
     display: "flex",
     justifyContent: "center",
 };
@@ -71,6 +68,7 @@ const searchBarStyle = {
 const navStyle = {
     display: "flex",
     gap: "20px",
+    alignItems: "center",
 };
 
 const navLinkStyle = {
