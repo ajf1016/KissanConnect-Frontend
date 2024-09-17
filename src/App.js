@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from './navbar';
 import HeroSection from './HeroSection';
@@ -16,5 +17,6 @@ const App = () => {
     </div>
   );
 };
+
 
 export default App;
