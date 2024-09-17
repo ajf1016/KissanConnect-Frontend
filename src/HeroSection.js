@@ -3,6 +3,14 @@ import heroImage from './assets/images/kisan.jpg';
 import { FaChevronDown } from 'react-icons/fa'; // Import scroll down icon
 
 const HeroSection = () => {
+  // Function to handle scroll on clicking the down arrow
+  const handleScroll = () => {
+    const marketplaceSection = document.getElementById('marketplace');
+    if (marketplaceSection) {
+      marketplaceSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div style={{
       position: 'relative',
@@ -42,14 +50,18 @@ const HeroSection = () => {
           Kisan Connect bridges the gap between farmers and buyers, providing a safe and reliable marketplace for trading crops and produce. Empowering the agricultural community!
         </p>
       </div>
+      
       {/* Scroll Icon with Breathing Animation */}
-      <div style={{
-        position: 'absolute',
-        bottom: '20px',
-        fontSize: '24px',
-        color: '#fff',
-        animation: 'breathing 2s ease-in-out infinite'
-      }}>
+      <div 
+        onClick={handleScroll} // Trigger scroll on click
+        style={{
+          position: 'absolute',
+          bottom: '20px',
+          fontSize: '24px',
+          color: '#fff',
+          cursor: 'pointer', // Make the icon clickable
+          animation: 'breathing 2s ease-in-out infinite'
+        }}>
         <FaChevronDown />
       </div>
 

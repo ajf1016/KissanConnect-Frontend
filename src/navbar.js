@@ -20,16 +20,19 @@ const Navbar = () => {
     }}>
       {/* Left: Logo */}
       <div style={{
-        height: '100%', // Make sure this div takes up the full height of the navbar
-        display: 'flex',
-        alignItems: 'center' // Vertically align the logo in the navbar
-      }}>
-        <img
-          src={logo}
-          alt="Kisan Connect Logo"
-          style={{ height: '100px', borderRadius: '10px' }} // Fixed logo height
-        />
-      </div>
+  height: '100%', // Make sure this div takes up the full height of the navbar
+  display: 'flex',
+  alignItems: 'center' // Vertically align the logo in the navbar
+}}>
+  <a href="#home" style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+    <img
+      src={logo}
+      alt="Kisan Connect Logo"
+      style={{ height: '100px', borderRadius: '10px' }} // Fixed logo height
+    />
+  </a>
+</div>
+
 
       {/* Middle: Navigation Links */}
       <div style={{
@@ -47,7 +50,7 @@ const Navbar = () => {
           padding: '10px 0',
           transition: 'color 0.3s ease',
         }}
-          onMouseOver={(e) => { e.target.style.color = '#4CAF50'; }}
+          onMouseOver={(e) => { e.target.style.color = '#FFA500'; }}
           onMouseOut={(e) => { e.target.style.color = 'white'; }}
         >
           Home
@@ -60,7 +63,7 @@ const Navbar = () => {
           padding: '10px 0',
           transition: 'color 0.3s ease',
         }}
-          onMouseOver={(e) => { e.target.style.color = '#4CAF50'; }}
+          onMouseOver={(e) => { e.target.style.color = '#FFA500'; }}
           onMouseOut={(e) => { e.target.style.color = 'white'; }}
         >
           About us
@@ -73,7 +76,7 @@ const Navbar = () => {
           padding: '10px 0',
           transition: 'color 0.3s ease',
         }}
-          onMouseOver={(e) => { e.target.style.color = '#4CAF50'; }}
+          onMouseOver={(e) => { e.target.style.color = '#FFA500'; }}
           onMouseOut={(e) => { e.target.style.color = 'white'; }}
         >
           Marketplace
