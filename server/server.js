@@ -9,7 +9,7 @@ const app = express();
 
 // Direct MongoDB connection URL
 const mongoURI = "mongodb://localhost:27017/mydatabase"; // Replace "mydatabase" with your database name
-const PORT = 5000; // Define your port number here
+const PORT = 5001; // Define your port number here
 
 // DB connection
 mongoose.set("useFindAndModify", false);
