@@ -7,20 +7,20 @@ import NewBidForm from "../NewBidForm";
 const Market = () => {
     const [contracts, setContracts] = useState([
         // Sample data
-        {
-            id: 1,
-            buyerName: "John Doe",
-            cropName: "Wheat",
-            quantity: "100kg",
-            price: "₹1500",
-        },
-        {
-            id: 2,
-            buyerName: "Jane Smith",
-            cropName: "Rice",
-            quantity: "200kg",
-            price: "₹2200",
-        },
+        // {
+        //     id: 1,
+        //     buyerName: "John Doe",
+        //     cropName: "Wheat",
+        //     quantity: "100kg",
+        //     price: "₹1500",
+        // },
+        // {
+        //     id: 2,
+        //     buyerName: "Jane Smith",
+        //     cropName: "Rice",
+        //     quantity: "200kg",
+        //     price: "₹2200",
+        // },
     ]);
 
     const [filters, setFilters] = useState({
@@ -64,7 +64,7 @@ const appStyle = {
     display: "flex",
     flexDirection: "column",
     width: "100%",
-    height: "max-content",
+    height: "100vh",
 };
 
 const contentStyle = {

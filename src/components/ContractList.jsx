@@ -3,36 +3,45 @@ import React from "react";
 function ContractList({ contracts, placeBid }) {
     return (
         <div style={contractsListStyle}>
-            {contracts.map((contract) => (
-                <div key={contract.id} style={contractCardStyle}>
-                    <h3>{contract.cropName}</h3>
-                    <p>
-                        <strong>Buyer:</strong> {contract.buyerName}
-                    </p>
-                    <p>
-                        <strong>Quantity:</strong> {contract.quantity}
-                    </p>
-                    <p>
-                        <strong>Price:</strong> ₹{contract.price}
-                    </p>
-                    <button
-                        onClick={() => placeBid(contract.id)}
-                        style={bidButtonStyle}
-                    >
-                        Place Bid
-                    </button>
-                </div>
-            ))}
+            <h1>{contracts?.length} Contract available</h1>
+            <div style={contractCards}>
+                {contracts.map((contract) => (
+                    <div key={contract.id} style={contractCardStyle}>
+                        <h3>{contract.cropName}</h3>
+                        <p>
+                            <strong>Buyer:</strong> {contract.buyerName}
+                        </p>
+                        <p>
+                            <strong>Quantity:</strong> {contract.quantity}
+                        </p>
+                        <p>
+                            <strong>Price:</strong> ₹{contract.price}
+                        </p>
+                        <button
+                            onClick={() => placeBid(contract.id)}
+                            style={bidButtonStyle}
+                        >
+                            Place Bid
+                        </button>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
 
 const contractsListStyle = {
-    display: "flex",
-    flexWrap: "wrap",
+    // display: "flex",
+    // flexWrap: "wrap",
+    // flexDirection: "row",
     // justifyContent: "space-around",
     // padding: "20px",
     width: "70%",
+};
+const contractCards = {
+    display: "flex",
+    flexWrap: "wrap",
+    flexDirection: "row",
 };
 
 const contractCardStyle = {
