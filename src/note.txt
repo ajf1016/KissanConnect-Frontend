@@ -1,0 +1,125 @@
+import React from 'react';
+
+// Navbar Component
+const Navbar = () => {
+  return (
+    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 30px', backgroundColor: '#4CAF50' }}>
+      <div>
+        <img src="logo.png" alt="Kisan Connect Logo" style={{ height: '40px' }} />
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', color: '#fff' }}>
+        <a href="#home" style={{ textDecoration: 'none', color: 'white' }}>Home</a>
+        <a href="#about" style={{ textDecoration: 'none', color: 'white' }}>About Us</a>
+        <a href="#marketplace" style={{ textDecoration: 'none', color: 'white' }}>Marketplace</a>
+      </div>
+      <div>
+        <div style={{ position: 'relative', display: 'inline-block' }}>
+          <button style={{ background: 'none', border: 'none', color: '#fff', fontSize: '16px' }}>Profile ▼</button>
+          <div style={{ display: 'none', position: 'absolute', right: 0, backgroundColor: '#fff', boxShadow: '0 8px 16px rgba(0,0,0,0.1)', zIndex: 1 }}>
+            <a href="/logout" style={{ padding: '12px', display: 'block', color: 'black', textDecoration: 'none' }}>Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Hero Section Component
+const HeroSection = () => {
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', padding: '50px 0', backgroundColor: '#f5f5f5' }}>
+      <img src="hero-image.jpg" alt="Kisan Connect Hero" style={{ width: '80%', height: 'auto', marginBottom: '20px' }} />
+      <h1 style={{ fontSize: '48px', color: '#333' }}>Welcome to Kisan Connect</h1>
+      <p style={{ fontSize: '20px', color: '#777', textAlign: 'center', maxWidth: '800px' }}>
+        Kisan Connect bridges the gap between farmers and buyers, providing a safe and reliable marketplace for trading crops and produce. Empowering the agricultural community!
+      </p>
+    </div>
+  );
+};
+
+// Marketplace Featured Deals Component
+const MarketplaceDeals = () => {
+  const deals = [
+    { crop: 'Wheat', quantity: '100 Kg', price: '₹2500' },
+    { crop: 'Rice', quantity: '150 Kg', price: '₹3000' },
+    { crop: 'Corn', quantity: '200 Kg', price: '₹4000' },
+  ];
+
+  return (
+    <div style={{ padding: '50px', backgroundColor: '#e8f5e9' }}>
+      <h2 style={{ textAlign: 'center', marginBottom: '30px', color: '#4CAF50' }}>Marketplace Featured Deals</h2>
+      <div style={{ display: 'flex', overflowX: 'auto', gap: '20px' }}>
+        {deals.map((deal, index) => (
+          <div key={index} style={{ border: '1px solid #ddd', padding: '20px', minWidth: '200px', backgroundColor: '#fff', borderRadius: '10px' }}>
+            <img src={`crop-${index + 1}.jpg`} alt={deal.crop} style={{ width: '100%', height: 'auto', borderRadius: '10px' }} />
+            <h3 style={{ fontSize: '18px', margin: '10px 0' }}>{deal.crop}</h3>
+            <p>Quantity: {deal.quantity}</p>
+            <p>Price: {deal.price}</p>
+            <button style={{ padding: '10px 20px', backgroundColor: '#4CAF50', color: '#fff', border: 'none', borderRadius: '5px' }}>Bid Now</button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// News Section Component
+const NewsSection = () => {
+  const newsItems = [
+    { title: 'Agricultural Reforms 2024', content: 'New reforms to help farmers increase yield and earnings.' },
+    { title: 'Organic Farming Trends', content: 'The rise of organic farming in rural areas.' },
+    { title: 'Tech in Agriculture', content: 'How technology is revolutionizing farming in India.' },
+  ];
+
+  return (
+    <div style={{ padding: '50px', backgroundColor: '#f5f5f5' }}>
+      <h2 style={{ textAlign: 'center', marginBottom: '30px', color: '#4CAF50' }}>Latest News</h2>
+      <div style={{ display: 'flex', justifyContent: 'space-around', gap: '20px' }}>
+        {newsItems.map((news, index) => (
+          <div key={index} style={{ border: '1px solid #ddd', padding: '20px', backgroundColor: '#fff', width: '30%', borderRadius: '10px' }}>
+            <h3 style={{ fontSize: '20px', marginBottom: '10px' }}>{news.title}</h3>
+            <p>{news.content}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Footer Component
+const Footer = () => {
+  return (
+    <div style={{ padding: '30px', backgroundColor: '#4CAF50', color: '#fff', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div>
+        <img src="logo.png" alt="Kisan Connect Logo" style={{ height: '40px' }} />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <p>Contact us: 1800-123-456</p>
+        <p>Email: contact@kisanconnect.com</p>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <a href="/privacy-policy" style={{ color: 'white', textDecoration: 'none' }}>Privacy Policy</a>
+        <a href="/terms" style={{ color: 'white', textDecoration: 'none' }}>Terms of Service</a>
+      </div>
+      <div>
+        <input type="email" placeholder="Enter your email" style={{ padding: '8px', marginRight: '10px', borderRadius: '5px', border: 'none' }} />
+        <button style={{ padding: '10px 20px', backgroundColor: '#fff', color: '#4CAF50', border: 'none', borderRadius: '5px' }}>Subscribe</button>
+      </div>
+    </div>
+  );
+};
+
+// Main App Component
+const KisanConnectApp = () => {
+  return (
+    <div>
+      <Navbar />
+      <HeroSection />
+      <MarketplaceDeals />
+      <NewsSection />
+      <Footer />
+    </div>
+  );
+};
+
+export default Dashboard;
