@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    background: transparent;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html {
+    scroll-behaviour: smooth;
+}
+@font-face {
+    font-family: "bold";
+    src: local("Gordita"),
+        url("https://oneruppee-react-static-media.s3.ap-southeast-1.amazonaws.com/fonts/bold.ttf")
+            format("truetype");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+    font-family: "medium";
+    /* font-weight: 900; */
+    src: local("Gordita"),
+        url("https://oneruppee-react-static-media.s3.ap-southeast-1.amazonaws.com/fonts/medium.ttf")
+            format("truetype");
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+    font-family: "regular";
+    /* font-weight: 900; */
+    src: local("Gordita"),
+        url("https://oneruppee-react-static-media.s3.ap-southeast-1.amazonaws.com/fonts/Gordita.ttf")
+            format("truetype");
+}
+ol,
+ul {
+    list-style: none;
+}
+blockquote {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after {
+    content: "";
+    content: none;
+}
+del {
+    text-decoration: line-through;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+body {
+    position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+header,
+section,
+article,
+aside,
+nav,
+footer,
+address {
+    display: block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input,
+textarea,
+select {
+    font-family: "open_sansregular", Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+.wrapper {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1420px;
+}
+
+.img-class {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
 }
