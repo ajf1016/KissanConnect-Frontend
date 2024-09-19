@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Customize the Google Translate top bar */
+body > .skiptranslate {
+  background-color: #2E7D32 !important; /* Change to a theme color */
+  height: 40px !important; /* Reduce its height */
+  box-shadow: none !important; /* Remove the shadow */
+}
+
+body > .skiptranslate div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  color: white !important; /* Change text color */
+}
+

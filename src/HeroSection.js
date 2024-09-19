@@ -1,80 +1,17 @@
 import React from 'react';
-import heroImage from './assets/images/kisan.jpg';
-import { FaChevronDown } from 'react-icons/fa'; // Import scroll down icon
+import heroImage from './assets/images/hero.png'; // Full-width hero image
 
 const HeroSection = () => {
-  // Function to handle scroll on clicking the down arrow
-  const handleScroll = () => {
-    const marketplaceSection = document.getElementById('marketplace');
-    if (marketplaceSection) {
-      marketplaceSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div style={{
       position: 'relative',
-      height: '100vh', // Full viewport height
-      overflow: 'hidden',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      flexDirection: 'column',
-      backgroundColor: '#f5f5f5',
-      color: '#fff',
-      textAlign: 'center',
+      height: '100vh',
+      backgroundColor: '#f5f5f5', // Light lime green background
       backgroundImage: `url(${heroImage})`,
-      backgroundSize: 'cover',
+      backgroundSize: 'contain', // Ensures the image fits within the container
       backgroundPosition: 'center',
-      backgroundAttachment: 'fixed' // Parallax effect
+      backgroundRepeat: 'no-repeat', // Avoids tiling the image
     }}>
-      <div style={{
-        zIndex: 1,
-        padding: '20px',
-        maxWidth: '800px',
-        fontFamily: '"Arial", sans-serif', // Use a custom font if desired
-        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.6)' // Text shadow for better readability
-      }}>
-        <h1 style={{
-          fontSize: '4rem',
-          fontWeight: 'bold',
-          margin: '0',
-          color: '#fff'
-        }}>Welcome to Kisan Connect</h1>
-        <p style={{
-          fontSize: '1.5rem',
-          margin: '20px 0',
-          lineHeight: '1.6',
-          color: '#ddd'
-        }}>
-          Kisan Connect bridges the gap between farmers and buyers, providing a safe and reliable marketplace for trading crops and produce. Empowering the agricultural community!
-        </p>
-      </div>
-      
-      {/* Scroll Icon with Breathing Animation */}
-      <div 
-        onClick={handleScroll} // Trigger scroll on click
-        style={{
-          position: 'absolute',
-          bottom: '20px',
-          fontSize: '24px',
-          color: '#fff',
-          cursor: 'pointer', // Make the icon clickable
-          animation: 'breathing 2s ease-in-out infinite'
-        }}>
-        <FaChevronDown />
-      </div>
-
-      {/* Keyframes for breathing animation */}
-      <style>
-        {`
-          @keyframes breathing {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-          }
-        `}
-      </style>
     </div>
   );
 };
