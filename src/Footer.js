@@ -16,21 +16,23 @@ const Footer = () => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      flexWrap: 'wrap',  // Ensure wrapping if necessary
+      flexWrap: 'wrap',
     },
     flexContainer: {
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'flex-start',
       width: '100%',
+      flexWrap: 'wrap', // Ensures responsive layout
     },
     section: {
       flex: 1,
       padding: '16px',
-      borderRight: '2px solid #000000',  // Vertical line
+      borderRight: '2px solid #000000',
+      minWidth: '250px',  // Ensures minimum width
     },
     lastSection: {
-      borderRight: 'none',  // Remove line from the last section
+      borderRight: 'none',
     },
     logoContainer: {
       display: 'flex',
@@ -48,7 +50,6 @@ const Footer = () => {
     logoDescription: {
       fontSize: '16px',
       color: '#ffffff',
-      fontWeight: 'normal',
     },
     linkList: {
       listStyle: 'none',
@@ -67,17 +68,6 @@ const Footer = () => {
       fontWeight: 'bold',
       cursor: 'pointer',
       marginBottom: '8px',
-    },
-    feedbackText: {
-      fontSize: '16px',
-      color: '#ffffff',
-      marginTop: '16px',
-    },
-    feedbackButton: {
-      fontSize: '20px',
-      color: '#ffffff',
-      textDecoration: 'underline',
-      cursor: 'pointer',
     },
     socialContainer: {
       display: 'flex',
@@ -110,7 +100,7 @@ const Footer = () => {
             style={styles.logoContainer}
             onClick={() => navigate("/")}
           >
-            <img src={logo} alt="Logo" style={{ height: '130px', width: '130px' }} />
+            <img src={logo} alt="Kisan Connect Logo" style={{ height: '130px', width: '130px' }} />
             <div style={styles.logoText}>
               <h3 style={styles.logoHeading}>
                 Kisan <br /> Connect
@@ -130,32 +120,35 @@ const Footer = () => {
               >
                 Home
               </li>
-              <li style={styles.linkItemBold} onClick={() => navigate("")}>
+              <li
+                style={styles.linkItemBold}
+                onClick={() => navigate("/market")}
+              >
                 Market
               </li>
             </ul>
-            <ul>
+            <ul style={styles.linkList}>
               <li
                 style={styles.linkItemBold}
-                onClick={() => navigate("about")}
+                onClick={() => navigate("/about")}
               >
                 About Us
               </li>
               <li
                 style={styles.linkItem}
-                onClick={() => navigate("")}
+                onClick={() => navigate("/help")}
               >
                 Help Center
               </li>
               <li
                 style={styles.linkItem}
-                onClick={() => navigate("")}
+                onClick={() => navigate("/dispute")}
               >
                 Partner Dispute
               </li>
               <li
                 style={styles.linkItem}
-                onClick={() => navigate("")}
+                onClick={() => navigate("/faqs")}
               >
                 FAQs
               </li>
@@ -169,17 +162,18 @@ const Footer = () => {
           <div style={styles.socialContainer}>
             <img
               src={Vector}
-              alt="Social Icon"
+              alt="Social Media - Icon 1"
               style={styles.socialIcon}
+              aria-label="Follow us on Social Media"
             />
             <img
               src={Vector1}
-              alt="Social Icon"
+              alt="Social Media - Icon 2"
               style={styles.socialIcon}
             />
             <img
               src={Vector2}
-              alt="Social Icon"
+              alt="Social Media - Icon 3"
               style={styles.socialIcon}
             />
           </div>
@@ -188,7 +182,7 @@ const Footer = () => {
           </p>
         </div>
         <div style={{ ...styles.section, ...styles.lastSection }}>
-          <img src={footerBg} alt="Footer Background" style={styles.footerBg} />
+          <img src={footerBg} alt="Ministry of Agriculture & Farmers Welfare Logo" style={styles.footerBg} />
           <h1 style={styles.footerText}>
             Ministry of Agriculture & Farmers Welfare
           </h1>

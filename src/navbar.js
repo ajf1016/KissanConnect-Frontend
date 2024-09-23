@@ -1,13 +1,18 @@
-// Navbar.js
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import logo from './assets/images/logo.png'; // Ensure this path is correct
-
+import profile from './assets/images/profile.png'; // Ensure this path is correct
 const Navbar = () => {
   const [profileVisible, setProfileVisible] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
 
   const toggleProfile = () => {
     setProfileVisible(!profileVisible);
+  };
+
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    setScrolling(offset > 50);
   };
 
   useEffect(() => {
@@ -26,6 +31,11 @@ const Navbar = () => {
     };
 
     addGoogleTranslateScript();
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
@@ -34,9 +44,9 @@ const Navbar = () => {
       justifyContent: 'space-between',
       alignItems: 'center',
       padding: '0 30px',
-      backgroundColor: '#2E7D32',
-      borderRadius: '15px',
+      backgroundColor: '#4CAF50',
       height: '70px',
+      boxShadow: scrolling ? '0 2px 5px rgba(0,0,0,0.2)' : 'none',
     }}>
       {/* Left: Logo */}
       <div style={{
@@ -62,54 +72,22 @@ const Navbar = () => {
         color: '#fff',
         height: '100%'
       }}>
-        <Link to="/" style={{
-          textDecoration: 'none',
-          color: 'white',
-          padding: '10px 0',
-          transition: 'color 0.3s ease',
-        }}
-          onMouseOver={(e) => { e.target.style.color = '#FFA500'; }}
-          onMouseOut={(e) => { e.target.style.color = 'white'; }}
-        >
-          Home
-        </Link>
-
-        <Link to="/about" style={{
-          textDecoration: 'none',
-          color: 'white',
-          padding: '10px 0',
-          transition: 'color 0.3s ease',
-        }}
-          onMouseOver={(e) => { e.target.style.color = '#FFA500'; }}
-          onMouseOut={(e) => { e.target.style.color = 'white'; }}
-        >
-          About Us
-        </Link>
-
-        <Link to="#marketplace" style={{
-          textDecoration: 'none',
-          color: 'white',
-          padding: '10px 0',
-          transition: 'color 0.3s ease',
-        }}
-          onMouseOver={(e) => { e.target.style.color = '#FFA500'; }}
-          onMouseOut={(e) => { e.target.style.color = 'white'; }}
-        >
-          Marketplace
-        </Link>
-
-        <Link to="/wallet" style={{
-          textDecoration: 'none',
-          color: 'white',
-          padding: '10px 0',
-          transition: 'color 0.3s ease',
-        }}
-          onMouseOver={(e) => { e.target.style.color = '#FFA500'; }}
-          onMouseOut={(e) => { e.target.style.color = 'white'; }}
-        >
-          Wallet
-        </Link>
-
+        {['Home', 'About Us', 'Marketplace', 'Wallet'].map((item) => (
+          <Link
+            key={item}
+            to={item === 'Home' ? '/' : item === 'About Us' ? '/about' : `/${item.toLowerCase().replace(' ', '')}`}
+            style={{
+              textDecoration: 'none',
+              color: 'white',
+              padding: '10px 0',
+              transition: 'color 0.3s ease',
+            }}
+            onMouseOver={(e) => { e.target.style.color = '#FFA500'; }}
+            onMouseOut={(e) => { e.target.style.color = 'white'; }}
+          >
+            {item}
+          </Link>
+        ))}
       </div>
 
       {/* Right: Profile and Google Translate */}
@@ -120,11 +98,11 @@ const Navbar = () => {
           height: '100%',
           display: 'flex',
           alignItems: 'center',
-          color: '#fff',
-          cursor: 'pointer'
+          color: '#4CAF50',
+          cursor: 'pointer',
         }}></div>
 
-        {/* Profile Dropdown */}
+        {/* Profile Button */}
         <div style={{ position: 'relative', display: 'inline-block', height: '100%' }}>
           <button
             onClick={toggleProfile}
@@ -134,17 +112,18 @@ const Navbar = () => {
               color: '#fff',
               fontSize: '16px',
               display: 'flex',
+              flexDirection: 'column',
               alignItems: 'center',
               cursor: 'pointer',
               height: '100%'
             }}
           >
             <img
-              src="https://via.placeholder.com/30"
+              src={profile}
               alt="Profile Icon"
-              style={{ borderRadius: '50%', width: '30px', height: '30px', marginRight: '8px' }}
+              style={{ borderRadius: '50%', width: '30px', height: '30px', marginBottom: '5px' }}
             />
-            Profile ▼
+            Profile
           </button>
           {profileVisible && (
             <div style={{

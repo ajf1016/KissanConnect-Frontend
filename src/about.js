@@ -1,26 +1,32 @@
 import React from "react";
- 
+import faiz from "./assets/images/faiz.jpeg";
+import k from "./assets/images/k.jpg";
+import vk from "./assets/images/vk.jpg";
+import ki from "./assets/images/ki.jpg";
+import me from "./assets/images/me.jpg";
+import bk from "./assets/images/bk.jpeg";
 
 const AboutUs = () => {
   const styles = {
     container: {
       display: 'flex',
       flexDirection: 'column',
-      minHeight: '100vh', // Ensure the container takes full viewport height
+      minHeight: '100vh', 
       padding: '20px',
       fontFamily: 'Arial, sans-serif',
-      boxSizing: 'border-box'
+      boxSizing: 'border-box',
+      backgroundColor: '#f7f3e9' // Soft beige for a natural, earthy background
     },
     teamSectionContainer: {
       marginBottom: '40px',
-      backgroundColor: '#e8f5e9',
+      backgroundColor: '#f4f4f4', // Light beige section background
       padding: '20px',
       borderRadius: '10px',
       boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
     },
     teamSectionHeader: {
       textAlign: 'center',
-      color: '#2E7D32',
+      color: '#2C5E1A', // Dark green for text
       marginBottom: '20px',
       fontSize: '28px',
       fontWeight: 'bold'
@@ -33,10 +39,17 @@ const AboutUs = () => {
     },
     teamMember: {
       textAlign: 'center',
-      backgroundColor: '#fff',
+      backgroundColor: '#fff', // White for contrast against the beige
       padding: '15px',
       borderRadius: '10px',
-      boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
+      boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+      animation: 'pop 0.5s ease-in-out', // Adding animation
+      transform: 'translateY(0)', // Start position
+      transition: 'transform 0.2s, box-shadow 0.2s', // Smooth transition for hover
+    },
+    teamMemberHover: {
+      transform: 'scale(1.05)', // Scale up on hover
+      boxShadow: '0 6px 12px rgba(0,0,0,0.2)', // Slightly bigger shadow
     },
     teamImageContainer: {
       marginBottom: '10px'
@@ -45,49 +58,75 @@ const AboutUs = () => {
       borderRadius: '50%',
       width: '150px',
       height: '150px',
-      objectFit: 'cover'
+      objectFit: 'cover',
+      border: '4px solid #2C5E1A' // Dark green border around images for emphasis
     },
     aboutSectionContainer: {
       marginBottom: '40px',
-      backgroundColor: '#fafafa',
+      backgroundColor: '#fff', // White for contrast
       padding: '20px',
       borderRadius: '10px',
       boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
     },
     aboutSectionHeader: {
-      color: '#2E7D32',
+      color: '#2C5E1A', // Dark green for headers
       marginBottom: '15px',
       fontSize: '28px',
       fontWeight: 'bold'
     },
     aboutDetails: {
       lineHeight: '1.6',
-      fontSize: '16px'
+      fontSize: '16px',
+      color: '#5F5F5F' // Soft gray for readable body text
     },
- 
+    listItem: {
+      margin: '10px 0',
+      color: '#3D3D3D' // Darker shade for the outcome list
+    },
   };
+
+  // Array of team members with images, names, roles, and registration numbers
+  const teamMembers = [
+    { name: 'Bramhank Mishra', role: 'Team Leader', registration: '1203450', image: bk },
+    { name: 'Md Ajmal Fayiz', role: 'Backend-Developer', registration: '12203447', image: faiz },
+    { name: 'Kaushik Raj', role: 'Intern', registration: '12203450', image: k },
+     { name: 'Vaibhav Kulshrestha', role: 'Frontend-Developer', registration: '12314448', image: me },
+     { name: 'Vashundra kumari', role: 'Ui-Designer', registration: '12201815', image: vk },
+    { name: 'Khushi', role: 'Designer', registration: '12316381', image: ki }
+    ];
 
   return (
     <div style={styles.container}>
-      
-
       {/* Team Section */}
       <section style={styles.teamSectionContainer}>
         <h2 style={styles.teamSectionHeader}>Meet the Team</h2>
         <div style={styles.teamGrid}>
-          {/* Team Member */}
-          {Array.from({ length: 6 }).map((_, index) => (
-            <div key={index} style={styles.teamMember}>
+          {teamMembers.map((member, index) => (
+            <div
+              key={index}
+              style={{ 
+                ...styles.teamMember,
+                animationDelay: `${index * 0.1}s`
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+                e.currentTarget.style.boxShadow = '0 6px 12px rgba(0,0,0,0.2)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+              }}
+            >
               <div style={styles.teamImageContainer}>
                 <img
-                  src="https://via.placeholder.com/150"
-                  alt="Team Member"
+                  src={member.image}
+                  alt={member.name}
                   style={styles.teamImage}
                 />
               </div>
-              <h3>Member Name</h3>
-              <p className="team-role">Role</p>
-              <p className="team-registration">Registration Number</p>
+              <h3>{member.name}</h3>
+              <p className="team-role">{member.role}</p>
+              <p className="team-registration">{member.registration}</p>
             </div>
           ))}
         </div>
@@ -122,16 +161,30 @@ const AboutUs = () => {
 
           <h3>Outcome</h3>
           <ul>
-            <li>Income Stability: Payments secured through escrow reduce uncertainty.</li>
-            <li>Market Access: Broader reach to local, national, and international buyers.</li>
-            <li>Risk Management: Rating systems and advisory services help farmers.</li>
-            <li>Efficiency: Automation of contracts and payments saves time and resources.</li>
-            <li>Economic Empowerment: Transparent systems enable better negotiations.</li>
+            <li style={styles.listItem}>Income Stability: Payments secured through escrow reduce uncertainty.</li>
+            <li style={styles.listItem}>Market Access: Broader reach to local, national, and international buyers.</li>
+            <li style={styles.listItem}>Risk Management: Rating systems and advisory services help farmers.</li>
+            <li style={styles.listItem}>Efficiency: Automation of contracts and payments saves time and resources.</li>
+            <li style={styles.listItem}>Economic Empowerment: Transparent systems enable better negotiations.</li>
           </ul>
         </div>
       </section>
 
-     
+      <style>
+        {`
+          @keyframes pop {
+            0% {
+              transform: scale(0.5);
+            }
+            50% {
+              transform: scale(1.1);
+            }
+            100% {
+              transform: scale(1);
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };

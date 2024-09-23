@@ -1,7 +1,5 @@
 import React from "react";
-import Serviceicon from "./assets/images/services.png"
-// Placeholder image URL
-
+import Serviceicon from "./assets/images/services.png"; // Placeholder image URL
 
 const Service = () => {
   const styles = {
@@ -24,12 +22,14 @@ const Service = () => {
       marginTop: '8px', // Equivalent to `mt-2`
       fontWeight: 'bold', // Equivalent to `font-bold`
       margin: 'auto',
+      color: '#F5F5F5', // Same color as paragraph
     },
     paragraph: {
       marginTop: '12px', // Equivalent to `mt-3`
       fontSize: '1.125rem', // Equivalent to `text-lg`
       fontWeight: '600', // Equivalent to `font-semibold`
       margin: 'auto',
+      color: '#F5F5F5', // Ensure paragraph color is defined
     },
     image: {
       maxWidth: '80%', // Equivalent to `max-width: 80%`
@@ -40,11 +40,13 @@ const Service = () => {
   return (
     <div style={styles.container}>
       <div style={styles.content}>
-        <h1 style={styles.heading}>Our Services</h1><br></br>
+        <h1 style={styles.heading}>Our Services</h1>
+        <br />
         <p style={styles.paragraph}>
           Following are the services that Krishi Sadhan market provides for
           Farmers:
-        </p><br></br>
+        </p>
+        <br />
         <img src={Serviceicon} style={styles.image} alt="Service" />
       </div>
     </div>
